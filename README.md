@@ -1,73 +1,89 @@
-# React + TypeScript + Vite
+# Proyecto React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Por **Josdel Páez**
 
-Currently, two official plugins are available:
+## Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplicación web moderna desarrollada con React, TypeScript y Vite. Esta plantilla proporciona un entorno de desarrollo rápido con Hot Module Replacement (HMR) y configuración optimizada.
 
-## React Compiler
+## Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** - Biblioteca para construir interfaces de usuario
+- **TypeScript** - Superset de JavaScript con tipado estático
+- **Vite** - Herramienta de construcción ultrarrápida
+- **ESLint** - Linter para mantener la calidad del código
 
-## Expanding the ESLint configuration
+## Requisitos Previos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Asegúrate de tener instalado:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js (versión 16 o superior)
+- npm o yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Instalación
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clona el repositorio o descarga los archivos
+
+2. Instala las dependencias:
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Cómo Arrancar el Proyecto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Modo Desarrollo
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Para iniciar el servidor de desarrollo:
+
+```bash
+npm run dev
 ```
+
+La aplicación estará disponible en [http://localhost:5173](http://localhost:5173)
+
+### Compilar para Producción
+
+Para generar la versión optimizada:
+
+```bash
+npm run build
+```
+
+Los archivos compilados se generarán en la carpeta `dist/`
+
+### Vista Previa de Producción
+
+Para previsualizar la versión de producción localmente:
+
+```bash
+npm run preview
+```
+
+## Comandos Disponibles
+
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Inicia el servidor de desarrollo |
+| `npm run build` | Compila el proyecto para producción |
+| `npm run preview` | Previsualiza la versión de producción |
+| `npm run lint` | Ejecuta el linter para revisar el código |
+
+## Estructura del Proyecto
+
+```
+app/
+├── src/              # Código fuente
+│   ├── assets/       # Recursos estáticos
+│   ├── App.tsx       # Componente principal
+│   └── main.tsx      # Punto de entrada
+├── public/           # Archivos públicos
+└── index.html        # HTML principal
+```
+
+## Autor
+
+**Josdel Páez**
+
+---
+
+¡Listo para desarrollar!
