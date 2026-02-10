@@ -8,9 +8,10 @@ const products = [
     id: 1,
     name: 'Generador de Ozono Médico',
     description:
-      'Generador de ozono de grado médico con pantalla táctil digital. Concentraciones precisas y control total del tratamiento.',
+      'Generador de ozono de uso médico con control de concentración y funciones de seguridad para terapias de ozono.',
     price: 'Consultar',
     image: '/images/producto-ozono-real.jpg',
+    availability: 'https://schema.org/InStock',
     features: [
       'Pantalla táctil digital',
       'Control de concentración',
@@ -24,9 +25,10 @@ const products = [
     id: 2,
     name: 'Kit Completo Ozono + Oxígeno',
     description:
-      'Kit completo que incluye generador de ozono, cilindro de oxígeno medicinal, regulador y todos los accesorios necesarios.',
+      'Kit completo con generador de ozono, cilindro de oxígeno medicinal, regulador y accesorios para uso clínico.',
     price: 'Consultar',
     image: '/images/producto-kit-real.jpg',
+    availability: 'https://schema.org/InStock',
     features: [
       'Incluye todos los accesorios',
       'Cilindro de oxígeno medicinal',
@@ -40,9 +42,10 @@ const products = [
     id: 3,
     name: 'Concentrador de Oxígeno',
     description:
-      'Concentrador de oxígeno de alta pureza. Ideal para uso médico y terapéutico. Disponible bajo pedido.',
+      'Concentrador de oxígeno para uso médico y terapéutico. Disponible bajo pedido en Caracas y Venezuela.',
     price: 'Consultar',
     image: '/images/product-oxygen-concentrator.jpg',
+    availability: 'https://schema.org/PreOrder',
     features: [
       'Alta pureza de oxígeno',
       'Flujo regulable',
@@ -55,9 +58,40 @@ const products = [
 ];
 
 export function Products() {
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Catálogo de productos Ozono Venezuela',
+    itemListElement: products.map((product, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Product',
+        name: product.name,
+        description: product.description,
+        image: `https://www.ozonovenezuela.com${product.image}`,
+        brand: {
+          '@type': 'Brand',
+          name: 'Ozono Venezuela',
+        },
+        category: 'Equipos médicos de ozono y oxígeno',
+        url: 'https://www.ozonovenezuela.com/#productos',
+        availability: product.availability,
+      },
+    })),
+  };
+
   return (
-    <section id="productos" className="py-28 bg-white">
+    <section
+      id="productos"
+      aria-labelledby="productos-title"
+      className="py-28 bg-white"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        />
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -69,12 +103,15 @@ export function Products() {
           <span className="inline-block px-4 py-2 bg-oxy-blue/10 text-oxy-blue text-sm font-semibold rounded-full mb-4">
             CATÁLOGO
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-oxy-black mb-4">
-            Nuestros Productos
+          <h2
+            id="productos-title"
+            className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-oxy-black mb-4"
+          >
+            Catálogo de Equipos de Ozono y Oxígeno Médicos
           </h2>
           <p className="text-lg text-oxy-light-grey max-w-2xl mx-auto">
-            Importadora de Concentradores de Ozono y Oxígeno médicos. 
-            Equipos en existencia y bajo pedidos. Nos adaptamos a su requerimiento.
+            Importadora de concentradores de ozono y oxígeno médicos en Caracas.
+            Equipos en existencia y bajo pedido según necesidad clínica.
           </p>
         </motion.div>
 
@@ -83,96 +120,101 @@ export function Products() {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           staggerDelay={0.2}
         >
-          {products.map((product) => (
-            <StaggerItem key={product.id}>
-              <motion.div
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.4 }}
-                className="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-400"
-              >
-                {/* Product Image */}
-                <div className="relative overflow-hidden bg-oxy-grey h-64">
-                  <motion.img
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.5 }}
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Badge */}
-                  <div
-                    className={`absolute top-4 left-4 ${product.badgeColor} text-white text-xs font-semibold px-3 py-1 rounded-full`}
-                  >
-                    {product.badge}
-                  </div>
-                  {/* Overlay on hover */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    className="absolute inset-0 bg-oxy-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  >
-                    <a
-                      href="https://wa.me/584143146421"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button
-                        className="bg-white text-oxy-black hover:bg-oxy-orange hover:text-oxy-black"
+          <div className="contents" role="list" aria-label="Listado de productos">
+            {products.map((product) => (
+              <StaggerItem key={product.id}>
+                <motion.article
+                  role="listitem"
+                  whileHover={{ y: -10 }}
+                  transition={{ duration: 0.4 }}
+                  className="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-400"
+                >
+                    {/* Product Image */}
+                    <div className="relative overflow-hidden bg-oxy-grey h-64">
+                      <motion.img
+                        whileHover={{ scale: 1.08 }}
+                        transition={{ duration: 0.5 }}
+                        src={product.image}
+                        alt={`${product.name} | Ozono Venezuela`}
+                        width={1200}
+                        height={900}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover"
+                      />
+                      {/* Badge */}
+                      <div
+                        className={`absolute top-4 left-4 ${product.badgeColor} text-white text-xs font-semibold px-3 py-1 rounded-full`}
                       >
-                        Consultar por WhatsApp
-                      </Button>
-                    </a>
-                  </motion.div>
-                </div>
-
-                {/* Product Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-heading font-medium text-oxy-black mb-2">
-                    {product.name}
-                  </h3>
-                  <p className="text-oxy-light-grey text-sm mb-4 line-clamp-2">
-                    {product.description}
-                  </p>
-
-                  {/* Features */}
-                  <ul className="space-y-2 mb-6">
-                    {product.features.map((feature, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-center gap-2 text-sm text-oxy-black"
+                        {product.badge}
+                      </div>
+                      {/* Overlay on hover */}
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                        className="absolute inset-0 bg-oxy-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       >
-                        <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Price and CTA */}
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <div>
-                      <span className="text-sm text-oxy-light-grey">Precio</span>
-                      <p className="text-xl font-semibold text-oxy-blue">
-                        {product.price}
-                      </p>
+                        <a
+                          href="https://wa.me/584143146421"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button className="bg-white text-oxy-black hover:bg-oxy-orange hover:text-oxy-black">
+                            Consultar por WhatsApp
+                          </Button>
+                        </a>
+                      </motion.div>
                     </div>
-                    <a
-                      href="https://wa.me/584143146421"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button
-                        variant="outline"
-                        className="border-oxy-blue text-oxy-blue hover:bg-oxy-blue hover:text-white group/btn"
-                      >
-                        Cotizar
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                      </Button>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            </StaggerItem>
-          ))}
+
+                    {/* Product Content */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-heading font-medium text-oxy-black mb-2">
+                        {product.name}
+                      </h3>
+                      <p className="text-oxy-light-grey text-sm mb-4 line-clamp-2">
+                        {product.description}
+                      </p>
+
+                      {/* Features */}
+                      <ul className="space-y-2 mb-6">
+                        {product.features.map((feature, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-center gap-2 text-sm text-oxy-black"
+                          >
+                            <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Price and CTA */}
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                          <span className="text-sm text-oxy-light-grey">Precio</span>
+                          <p className="text-xl font-semibold text-oxy-blue">
+                            {product.price}
+                          </p>
+                        </div>
+                        <a
+                          href="https://wa.me/584143146421"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            variant="outline"
+                            className="border-oxy-blue text-oxy-blue hover:bg-oxy-blue hover:text-white group/btn"
+                          >
+                            Cotizar
+                            <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                          </Button>
+                        </a>
+                      </div>
+                    </div>
+                  </motion.article>
+              </StaggerItem>
+            ))}
+          </div>
         </StaggerContainer>
 
         {/* View All Button */}

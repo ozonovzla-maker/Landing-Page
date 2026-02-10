@@ -8,6 +8,7 @@ const navLinks = [
   { name: 'Productos', href: '#productos' },
   { name: 'Beneficios', href: '#beneficios' },
   { name: 'Nosotros', href: '#nosotros' },
+  { name: 'FAQ', href: '#faq' },
   { name: 'Contacto', href: '#contacto' },
 ];
 
@@ -59,7 +60,9 @@ export function Header() {
             >
               <img 
                 src="/images/logo.png" 
-                alt="Ozono Venezuela Logo" 
+                alt="Ozono Venezuela - Logo" 
+                width={40}
+                height={40}
                 className="w-10 h-10 object-contain"
               />
               <div className="flex flex-col">
@@ -71,7 +74,7 @@ export function Header() {
             </motion.a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
               {navLinks.map((link) => (
                 <motion.a
                   key={link.name}
@@ -100,6 +103,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-oxy-black hover:text-oxy-blue transition-colors"
+                aria-label="WhatsApp ventas en Caracas"
               >
                 <Phone className="w-4 h-4" />
                 <span className="text-sm font-medium">+58 414-3146421</span>

@@ -11,7 +11,10 @@ export function CTABanner() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-r from-oxy-black via-[#2a3548] to-oxy-black relative overflow-hidden">
+    <section
+      aria-labelledby="cta-title"
+      className="py-20 bg-gradient-to-r from-oxy-black via-[#2a3548] to-oxy-black relative overflow-hidden"
+    >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -left-1/4 w-[600px] h-[600px] bg-oxy-blue/10 rounded-full blur-3xl" />
@@ -26,13 +29,14 @@ export function CTABanner() {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
+            id="cta-title"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-white mb-4"
           >
-            ¿Listo para Mejorar tu Calidad de Vida?
+            Cotiza Equipos de Ozono y Oxígeno Médicos
           </motion.h2>
 
           <motion.p
@@ -42,8 +46,8 @@ export function CTABanner() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto"
           >
-            Contáctanos hoy y recibe asesoría personalizada. Tenemos equipos en 
-            existencia y trabajamos bajo pedidos según su requerimiento.
+            Contáctanos y recibe asesoría personalizada en Caracas. Tenemos equipos
+            en existencia y trabajamos bajo pedido según su requerimiento.
           </motion.p>
 
           <motion.div
@@ -64,17 +68,8 @@ export function CTABanner() {
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 WhatsApp Ventas
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </a>
-            <Button
-              onClick={scrollToContact}
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-oxy-black font-semibold px-8 py-6 text-base"
-            >
-              Ver Contacto
-            </Button>
           </motion.div>
 
           {/* Trust badges */}

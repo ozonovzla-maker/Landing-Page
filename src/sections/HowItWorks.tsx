@@ -39,19 +39,26 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-28 bg-white">
+    <section
+      id="proceso"
+      aria-labelledby="proceso-title"
+      className="py-28 bg-white"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <AnimatedSection className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-oxy-blue/10 text-oxy-blue text-sm font-semibold rounded-full mb-4">
             PROCESO
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-oxy-black mb-4">
-            ¿Cómo Funciona el Ozono?
+          <h2
+            id="proceso-title"
+            className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-oxy-black mb-4"
+          >
+            ¿Cómo Funciona la Ozonoterapia?
           </h2>
           <p className="text-lg text-oxy-light-grey max-w-2xl mx-auto">
-            El ozono es una forma alotrópica del oxígeno con propiedades
-            terapéuticas extraordinarias. Conoce el proceso paso a paso.
+            El ozono es una forma alotrópica del oxígeno utilizada en terapias
+            complementarias. Conoce el proceso paso a paso.
           </p>
         </AnimatedSection>
 
@@ -117,9 +124,8 @@ export function HowItWorks() {
               ¿Sabías que?
             </h3>
             <p className="text-oxy-light-grey">
-              El ozono es <span className="font-semibold text-oxy-blue">3,000 veces más efectivo</span> que el cloro como
-              desinfectante, y se transforma naturalmente en oxígeno puro (O2)
-              después de realizar su función, sin dejar residuos tóxicos.
+              El ozono se transforma naturalmente en oxígeno (O2) después de
+              su uso, sin dejar residuos en el ambiente.
             </p>
           </motion.div>
         </AnimatedSection>

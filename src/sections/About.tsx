@@ -11,7 +11,11 @@ const stats = [
 
 export function About() {
   return (
-    <section id="nosotros" className="py-28 bg-oxy-azure">
+    <section
+      id="nosotros"
+      aria-labelledby="nosotros-title"
+      className="py-28 bg-oxy-azure"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image */}
@@ -23,7 +27,11 @@ export function About() {
               
               <img
                 src="/images/producto-kit-real.jpg"
-                alt="Productos Ozono Venezuela"
+                alt="Kit de ozono médico y oxígeno con accesorios"
+                width={1200}
+                height={900}
+                loading="lazy"
+                decoding="async"
                 className="relative rounded-2xl shadow-2xl w-full"
               />
               
@@ -53,25 +61,28 @@ export function About() {
               <span className="inline-block px-4 py-2 bg-oxy-blue/10 text-oxy-blue text-sm font-semibold rounded-full mb-4">
                 SOBRE NOSOTROS
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-oxy-black mb-6">
-                Grupo Tecnológico para La Salud
+              <h2
+                id="nosotros-title"
+                className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-oxy-black mb-6"
+              >
+                Importadora de Equipos Médicos para Ozonoterapia y Oxigenoterapia
               </h2>
             </AnimatedSection>
 
             <AnimatedSection direction="right" delay={0.2}>
               <p className="text-lg text-oxy-light-grey leading-relaxed mb-6">
-                Somos <strong>Ozono Venezuela</strong>, importadora de Concentradores de Ozono 
-                y Oxígeno médicos al mayor y detal. Con 4 años de experiencia en el mercado 
-                venezolano, nos hemos consolidado como referentes en el sector de equipos 
-                médicos para ozonoterapia y oxigenoterapia.
+                Somos <strong>Ozono Venezuela</strong>, importadora de concentradores de ozono
+                y oxígeno médicos al mayor y detal. Con 4 años de experiencia en el mercado
+                venezolano, acompañamos a clínicas y profesionales de la salud con equipos
+                para ozonoterapia y oxigenoterapia en Caracas y el resto del país.
               </p>
             </AnimatedSection>
 
             <AnimatedSection direction="right" delay={0.3}>
               <p className="text-lg text-oxy-light-grey leading-relaxed mb-6">
-                Contamos con equipos en existencia para entrega inmediata, y también 
-                trabajamos bajo pedidos. Nos adaptamos a su requerimiento específico 
-                para ofrecerle la mejor solución según sus necesidades.
+                Contamos con equipos en existencia para entrega inmediata y también
+                trabajamos bajo pedido. Nos adaptamos a su requerimiento para ofrecer
+                la mejor solución según sus necesidades.
               </p>
             </AnimatedSection>
 

@@ -7,35 +7,39 @@ const features = [
     icon: Package,
     title: 'Equipos en Existencia',
     description:
-      'Contamos con inventario disponible para entrega inmediata. También trabajamos bajo pedidos según sus necesidades.',
+      'Inventario disponible para entrega inmediata en Caracas. También trabajamos bajo pedido en toda Venezuela.',
     color: 'bg-blue-100 text-blue-600',
   },
   {
     icon: ShieldCheck,
     title: 'Calidad Garantizada',
     description:
-      'Productos certificados con los más altos estándares de calidad para uso profesional y doméstico seguro.',
+      'Equipos médicos confiables para ozonoterapia y oxigenoterapia con respaldo técnico.',
     color: 'bg-green-100 text-green-600',
   },
   {
     icon: Award,
     title: 'Garantía 2 Años',
     description:
-      'Todos nuestros equipos cuentan con 2 años de garantía completa con cobertura de repuestos.',
+      'Garantía de 2 años con cobertura de repuestos y asesoría postventa.',
     color: 'bg-purple-100 text-purple-600',
   },
   {
     icon: Headphones,
     title: 'Soporte Técnico',
     description:
-      'Asesoría personalizada antes y después de su compra. Nos adaptamos a su requerimiento específico.',
+      'Asesoría personalizada antes y después de la compra para cada requerimiento.',
     color: 'bg-orange-100 text-orange-600',
   },
 ];
 
 export function Features() {
   return (
-    <section id="beneficios" className="py-28 bg-oxy-grey">
+    <section
+      id="beneficios"
+      aria-labelledby="beneficios-title"
+      className="py-28 bg-oxy-grey"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -48,12 +52,15 @@ export function Features() {
           <span className="inline-block px-4 py-2 bg-oxy-blue/10 text-oxy-blue text-sm font-semibold rounded-full mb-4">
             NUESTRAS VENTAJAS
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-oxy-black mb-4">
-            ¿Por Qué Elegir Ozono Venezuela?
+          <h2
+            id="beneficios-title"
+            className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-oxy-black mb-4"
+          >
+            Equipos de Ozono y Oxígeno Médicos con Respaldo Profesional
           </h2>
           <p className="text-lg text-oxy-light-grey max-w-2xl mx-auto">
-            Nos distinguimos por ofrecer productos de la más alta calidad con el
-            respaldo de 4 años de experiencia en el mercado venezolano.
+            Importamos equipos para ozonoterapia y oxigenoterapia con garantía,
+            soporte técnico y entrega en Caracas y Venezuela.
           </p>
         </motion.div>
 

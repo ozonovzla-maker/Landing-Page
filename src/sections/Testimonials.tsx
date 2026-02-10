@@ -32,7 +32,11 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-28 bg-oxy-grey">
+    <section
+      id="testimonios"
+      aria-labelledby="testimonios-title"
+      className="py-28 bg-oxy-grey"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -45,12 +49,14 @@ export function Testimonials() {
           <span className="inline-block px-4 py-2 bg-oxy-blue/10 text-oxy-blue text-sm font-semibold rounded-full mb-4">
             TESTIMONIOS
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-oxy-black mb-4">
-            Lo Que Dicen Nuestros Clientes
+          <h2
+            id="testimonios-title"
+            className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-oxy-black mb-4"
+          >
+            Opiniones de Clientes sobre Nuestros Equipos Médicos
           </h2>
           <p className="text-lg text-oxy-light-grey max-w-2xl mx-auto">
-            Clientes satisfechos que confían en nuestros equipos para mejorar 
-            su salud y bienestar.
+            Opiniones sobre nuestros equipos médicos y la atención en Caracas y Venezuela.
           </p>
         </motion.div>
 
@@ -66,7 +72,11 @@ export function Testimonials() {
             <div className="flex items-center gap-3">
               <img 
                 src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
-                alt="Google" 
+                alt="Google Reviews" 
+                width={92}
+                height={30}
+                loading="lazy"
+                decoding="async"
                 className="h-8"
               />
               <span className="text-2xl font-bold text-oxy-black">Reviews</span>

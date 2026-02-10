@@ -13,6 +13,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
+      aria-labelledby="inicio-title"
       className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-oxy-azure via-white to-white"
     >
       {/* Background decoration */}
@@ -35,6 +36,7 @@ export function Hero() {
             </motion.span>
 
             <motion.h1
+              id="inicio-title"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -51,8 +53,8 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg text-oxy-light-grey leading-relaxed mb-8 max-w-xl"
             >
-              Importadora de Concentradores de Ozono y Oxígeno médicos al mayor/detal. 
-              Equipos en existencia y bajo pedidos. Nos adaptamos a su requerimiento.
+              Importamos y distribuimos concentradores de ozono y oxígeno médicos en Caracas
+              y toda Venezuela. Equipos en existencia y bajo pedido, con asesoría personalizada.
             </motion.p>
 
             <motion.div
@@ -166,7 +168,12 @@ export function Hero() {
               <div className="absolute inset-0 bg-gradient-to-r from-oxy-blue/20 to-oxy-light-blue/20 rounded-3xl blur-2xl transform scale-110" />
               <img
                 src="/images/producto-ozono-real.jpg"
-                alt="Generador de Ozono Médico Ozono Venezuela"
+                alt="Generador de ozono médico para ozonoterapia"
+                width={1200}
+                height={900}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="relative w-full h-auto rounded-3xl shadow-2xl"
               />
               

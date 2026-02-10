@@ -6,6 +6,7 @@ const quickLinks = [
   { name: 'Productos', href: '#productos' },
   { name: 'Beneficios', href: '#beneficios' },
   { name: 'Nosotros', href: '#nosotros' },
+  { name: 'FAQ', href: '#faq' },
   { name: 'Contacto', href: '#contacto' },
 ];
 
@@ -30,7 +31,8 @@ export function Footer() {
   };
 
   return (
-    <footer id="contacto" className="bg-oxy-black text-white">
+    <footer id="contacto" aria-labelledby="contacto-title" className="bg-oxy-black text-white">
+      <h2 id="contacto-title" className="sr-only">Contacto</h2>
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -47,7 +49,9 @@ export function Footer() {
             >
               <img 
                 src="/images/logo.png" 
-                alt="Ozono Venezuela Logo" 
+                alt="Ozono Venezuela - Logo" 
+                width={40}
+                height={40}
                 className="w-10 h-10 object-contain"
               />
               <div className="flex flex-col">
@@ -56,8 +60,8 @@ export function Footer() {
               </div>
             </motion.a>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Importadora de Concentradores de Ozono y Oxígeno médicos al mayor/detal. 
-              Equipos en existencia y bajo pedidos. 4 años de experiencia.
+              Importadora de concentradores de ozono y oxígeno médicos en Caracas y Venezuela.
+              Equipos en existencia y bajo pedido. 4 años de experiencia.
             </p>
             {/* Social Links */}
             <div className="flex gap-3">
@@ -125,7 +129,8 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-lg font-heading font-medium mb-4">Contacto</h4>
-            <ul className="space-y-4">
+            <address className="not-italic">
+              <ul className="space-y-4">
               <li>
                 <a
                   href="mailto:ozonovnzla@gmail.com"
@@ -150,6 +155,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 text-gray-400 hover:text-oxy-orange transition-colors"
+                  aria-label="WhatsApp ventas en Caracas"
                 >
                   <svg
                     className="w-5 h-5 mt-0.5 flex-shrink-0"
@@ -165,7 +171,8 @@ export function Footer() {
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
                 <span>Edificio La Linea, Av. Libertador, Caracas 1052, Distrito Capital, Venezuela</span>
               </li>
-            </ul>
+              </ul>
+            </address>
           </div>
         </div>
       </div>
