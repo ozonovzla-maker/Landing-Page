@@ -138,7 +138,7 @@ export function Products() {
 
         {/* Products Grid */}
         <StaggerContainer
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8"
           staggerDelay={0.2}
         >
           <div className="contents" role="list" aria-label="Listado de productos">
