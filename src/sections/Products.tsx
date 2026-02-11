@@ -6,54 +6,75 @@ import { StaggerContainer, StaggerItem } from '@/components/AnimatedSection';
 const products = [
   {
     id: 1,
-    name: 'Generador de Ozono Médico',
+    name: 'Serie 1 Mini',
     description:
-      'Generador de ozono de uso médico con control de concentración y funciones de seguridad para terapias de ozono.',
+      'Generador de ozono compacto de uso médico, ideal para consultorios y terapias de ozono.',
     price: 'Consultar',
-    image: '/images/producto-ozono-real.jpg',
+    image: '/images/serie-1-mini.jpeg',
     availability: 'https://schema.org/InStock',
     features: [
-      'Pantalla táctil digital',
-      'Control de concentración',
-      'Timer programable',
-      'Garantía 2 años',
+      'Concentración: 10-99 μg/mL',
+      'Flujo de regulador: 1/32 - 1 L/min',
+      'Modo: Normal',
+      'Energía: 110V 25W',
+      'Refrigeración: Fan Cooler',
     ],
     badge: 'Disponible',
     badgeColor: 'bg-green-500',
   },
   {
     id: 2,
-    name: 'Kit Completo Ozono + Oxígeno',
+    name: 'Serie 1 Plus',
     description:
-      'Kit completo con generador de ozono, cilindro de oxígeno medicinal, regulador y accesorios para uso clínico.',
+      'Generador de ozono compacto y duradero con carcasa de acero inoxidable #304. Electrodo de titanio con tubo de cuarzo y refrigeración por aire con ventilador integrado de 15 CFM para operación continua 24h.',
     price: 'Consultar',
-    image: '/images/producto-kit-real.jpg',
+    image: '/images/serie-1-plus.jpeg',
     availability: 'https://schema.org/InStock',
     features: [
-      'Incluye todos los accesorios',
-      'Cilindro de oxígeno medicinal',
-      'Regulador profesional',
-      'Listo para usar',
+      'Concentración: 10-99 μg/mL',
+      'Flujo de oxígeno: 1/32 - 4 L/min',
+      'Dimensiones: 192×67×40 mm | Peso: 1,5 kg',
+      'Entrada: 100-240 VCA (50/60Hz) | 12V DC',
+      'Vida útil: +10.000 horas',
     ],
-    badge: 'Más Vendido',
-    badgeColor: 'bg-oxy-orange',
+    badge: 'Disponible',
+    badgeColor: 'bg-green-500',
   },
   {
     id: 3,
-    name: 'Concentrador de Oxígeno',
+    name: 'Serie 1000',
     description:
-      'Concentrador de oxígeno para uso médico y terapéutico. Disponible bajo pedido en Caracas y Venezuela.',
+      'Generador de ozono médico con modo de bomba al vacío para aplicaciones clínicas avanzadas.',
     price: 'Consultar',
-    image: '/images/product-oxygen-concentrator.jpg',
-    availability: 'https://schema.org/PreOrder',
+    image: '/images/serie-1000.jpeg',
+    availability: 'https://schema.org/InStock',
     features: [
-      'Alta pureza de oxígeno',
-      'Flujo regulable',
-      'Bajo consumo energético',
-      'Bajo pedido',
+      'Concentración: 1-120 μg/mL',
+      'Flujo de regulador: 1/32 - 1 L/min',
+      'Modos: Normal / Bomba al vacío',
+      'Energía: 110V 25W',
+      'Refrigeración: Fan Cooler',
     ],
-    badge: 'Bajo Pedido',
-    badgeColor: 'bg-oxy-blue',
+    badge: 'Disponible',
+    badgeColor: 'bg-green-500',
+  },
+  {
+    id: 4,
+    name: 'Serie 3000',
+    description:
+      'Generador de ozono médico de alta gama con temporizador y pedal de acción para máximo control en procedimientos clínicos.',
+    price: 'Consultar',
+    image: '/images/serie-3000.jpeg',
+    availability: 'https://schema.org/InStock',
+    features: [
+      'Concentración: 3-125 μg/mL',
+      'Flujo de regulador: 1/32 - 1 L/min',
+      'Modos: Normal / Temporizador / Pedal de acción',
+      'Energía: 110V 25W',
+      'Peso: 3 kg',
+    ],
+    badge: 'Disponible',
+    badgeColor: 'bg-green-500',
   },
 ];
 
@@ -107,17 +128,17 @@ export function Products() {
             id="productos-title"
             className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-oxy-black mb-4"
           >
-            Catálogo de Equipos de Ozono y Oxígeno Médicos
+            Generadores de Ozono Médico
           </h2>
           <p className="text-lg text-oxy-light-grey max-w-2xl mx-auto">
-            Importadora de concentradores de ozono y oxígeno médicos en Caracas.
-            Equipos en existencia y bajo pedido según necesidad clínica.
+            Línea completa de generadores de ozono médico con diferentes
+            capacidades para cada necesidad clínica.
           </p>
         </motion.div>
 
         {/* Products Grid */}
         <StaggerContainer
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           staggerDelay={0.2}
         >
           <div className="contents" role="list" aria-label="Listado de productos">
@@ -131,17 +152,23 @@ export function Products() {
                 >
                     {/* Product Image */}
                     <div className="relative overflow-hidden bg-oxy-grey h-64">
-                      <motion.img
-                        whileHover={{ scale: 1.08 }}
-                        transition={{ duration: 0.5 }}
-                        src={product.image}
-                        alt={`${product.name} | Ozono Venezuela`}
-                        width={1200}
-                        height={900}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover"
-                      />
+                      {product.image ? (
+                        <motion.img
+                          whileHover={{ scale: 1.08 }}
+                          transition={{ duration: 0.5 }}
+                          src={product.image}
+                          alt={`${product.name} | Ozono Venezuela`}
+                          width={1200}
+                          height={900}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-oxy-blue/10 to-oxy-blue/5">
+                          <span className="text-oxy-blue/40 text-lg font-medium">{product.name}</span>
+                        </div>
+                      )}
                       {/* Badge */}
                       <div
                         className={`absolute top-4 left-4 ${product.badgeColor} text-white text-xs font-semibold px-3 py-1 rounded-full`}
